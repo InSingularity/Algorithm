@@ -1,3 +1,2 @@
 # DataStructure
-Config files for my GitHub profile.
 基本数据结构的C++实现
