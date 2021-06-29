@@ -1,32 +1,6 @@
-ï»¿#include "pch.h"
+#include "pch.h"
 #include <iostream>
-using namespace std;
-
-#define MaxSize 50
-typedef int ElemType;
-typedef struct
-{
-	ElemType data[MaxSize];
-	int length;
-}SqList;
-
-void CreateList(SqList* &L, ElemType a[], int n);
-void InitList(SqList* &L);
-void DestroyList(SqList* &L);
-bool ListEmpty(SqList* L);
-int ListLength(SqList* L);
-void DispList(SqList* L);
-bool GetElem(SqList* L, int i, ElemType &e);
-int LocateElem(SqList* L, ElemType e);
-bool ListInsert(SqList* &L, int i, ElemType e);
-bool ListDelete(SqList* &L, int i, ElemType &e);
-
-
-int main()
-{
-
-	return 0;
-}
+#include "SequentialList.h"
 
 void CreateList(SqList *& L, ElemType a[], int n)
 {
@@ -37,7 +11,7 @@ void CreateList(SqList *& L, ElemType a[], int n)
 		L->data[i] = a[i];
 		i++;
 	}
-	L->length = --i;//å› ä¸ºé€€å‡ºå¾ªç¯æ—¶åˆåŠ äº†1
+	L->length = i;
 }
 
 void InitList(SqList *& L)
@@ -64,21 +38,21 @@ int ListLength(SqList * L)
 void DispList(SqList * L)
 {
 	for (int i = 0; i < L->length; i++)
-		cout << L->data[i];
-	cout << endl;
+		std::cout << L->data[i];
+	std::cout << std::endl;
 }
 
-//è¿”å›ç¬¬iä¸ªå…ƒç´  1 <= i <= n
+//·µ»ØµÚi¸öÔªËØ 1 <= i <= n
 bool GetElem(SqList * L, int i, ElemType & e)
 {
 	if (i < 1 || i > L->length)
 		return false;
 	else
-		e = L->data[i-1];
+		e = L->data[i - 1];
 	return true;
 }
 
-//è¿”å›eæ‰€åœ¨çš„ä½ç½®
+//·µ»ØeËùÔÚµÄÎ»ÖÃ
 int LocateElem(SqList * L, ElemType e)
 {
 	for (int i = 0; i < L->length; i++)
@@ -89,13 +63,13 @@ int LocateElem(SqList * L, ElemType e)
 	return 0;
 }
 
-//åœ¨ç¬¬iï¼ˆ1 <= i <= n+1ï¼‰ä¸ªä½ç½®æ’å…¥æ–°å…ƒç´ 
+//ÔÚµÚi£¨1 <= i <= n+1£©¸öÎ»ÖÃ²åÈëĞÂÔªËØ
 bool ListInsert(SqList *& L, int i, ElemType e)
 {
 	if (i<1 || i>L->length + 1)
 		return false;
-	i--;//ç‰©ç†ä½ç½®
-	for (int j = L->length - 1; j >= i; j--) //iä¹‹ååŒ…æ‹¬iä½ç½®çš„å…ƒç´ å¾€åç§»ä¸€ä¸ª
+	i--;//ÎïÀíÎ»ÖÃ
+	for (int j = L->length - 1; j >= i; j--) //iÖ®ºó°üÀ¨iÎ»ÖÃµÄÔªËØÍùºóÒÆÒ»¸ö
 		L->data[j + 1] = L->data[j];
 	L->data[i] = e;
 	L->length++;
@@ -107,9 +81,9 @@ bool ListDelete(SqList *& L, int i, ElemType & e)
 {
 	if (i<1 || i>L->length)
 		return false;
-	i--;//ç‰©ç†ä½ç½®
+	i--;//ÎïÀíÎ»ÖÃ
 	e = L->data[i];
-	while (i < L->length - 1)//iä¹‹ååŒ…æ‹¬iä½ç½®çš„å…ƒç´ å¾€å‰ç§»ä¸€ä¸ª
+	while (i < L->length - 1)//iÖ®ºó°üÀ¨iÎ»ÖÃµÄÔªËØÍùÇ°ÒÆÒ»¸ö
 	{
 		L->data[i] = L->data[i + 1];
 		i++;
