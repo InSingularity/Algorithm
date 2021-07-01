@@ -4,16 +4,16 @@ typedef struct LNode
 {
 	ElemType data;
 	struct LNode* next;
-}LinkNode;
+}LinkList;
 
-void CreateListF(LinkNode*& L, ElemType a[], int n);
-void CreateListR(LinkNode*& L, ElemType a[], int n);
-void InitList(LinkNode*& L);
-void DestroyList(LinkNode*& L);
-bool ListEmpty(LinkNode* L);
-int ListLength(LinkNode* L);
-void DispList(LinkNode* L);
-bool GetElem(LinkNode* L, int i, ElemType& e);
-int LocateElem(LinkNode* L, ElemType e);
-bool ListInsert(LinkNode*& L, int i, ElemType e);
-bool ListDelete(LinkNode*& L, int i, ElemType& e);
+void CreateListF(LinkList*& L, ElemType a[], int n);
+void CreateListR(LinkList*& L, ElemType a[], int n);
+void InitList(LinkList*& L);
+void DestroyList(LinkList*& L);
+bool ListEmpty(LinkList* L);
+int ListLength(LinkList* L);
+void DispList(LinkList* L);
+bool GetElem(LinkList* L, int i, ElemType& e);
+int LocateElem(LinkList* L, ElemType e);
+bool ListInsert(LinkList*& L, int i, ElemType e);
+bool ListDelete(LinkList*& L, int i, ElemType& e);

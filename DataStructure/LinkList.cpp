@@ -148,28 +148,28 @@ bool ListInsert(LinkList *& L, int i, ElemType e)
 
 bool ListDelete(LinkList *& L, int i, ElemType & e)
 {
-	LinkList* p = L, *q;
+	LinkList * pre = L, * p;
 	int j = 0;
 
 	if (i <= 0)
 		return false;
 
-	while (j < i - 1 && NULL != p)
+	while (j < i - 1 && NULL != pre)
 	{
 		j++;
-		p = p->next;
+		pre = pre->next;
 	}
 
-	if (NULL == p)
+	if (NULL == pre)
 		return false;
 	else
 	{
-		q = p->next;
-		if (NULL == q)
+		p = pre->next;
+		if (NULL == p)
 			return false;
-		p->next = q->next;
-		e = q->data;
-		free(q);
+		pre->next = p->next;
+		e = p->data;
+		free(p);
 	}
 	return true;
 }
