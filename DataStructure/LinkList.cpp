@@ -2,31 +2,31 @@
 #include <iostream>
 #include "LinkList.h"
 
-void CreateListF(LinkNode *& L, ElemType a[], int n)
+void CreateListF(LinkList *& L, ElemType a[], int n)
 {
-	LinkNode* s;
-	L = (LinkNode*)malloc(sizeof(LinkNode));
+	LinkList* s;
+	L = (LinkList*)malloc(sizeof(LinkList));
 	L->next = NULL;//建立头节点
 
 	for (int i = 0; i < n; i++)
 	{
-		s = (LinkNode*)malloc(sizeof(LinkNode));
+		s = (LinkList*)malloc(sizeof(LinkList));
 		s->data = a[i];
 		s->next = L->next;
 		L->next = s;
 	}
 }
 
-void CreateListR(LinkNode *& L, ElemType a[], int n)
+void CreateListR(LinkList *& L, ElemType a[], int n)
 {
-	LinkNode* s,* r;
-	L = (LinkNode*)malloc(sizeof(LinkNode));
+	LinkList* s,* r;
+	L = (LinkList*)malloc(sizeof(LinkList));
 	L->next = NULL;
 	r = L;
 
 	for (int i = 0; i < n; i++)
 	{
-		s = (LinkNode*)malloc(sizeof(LinkNode));
+		s = (LinkList*)malloc(sizeof(LinkList));
 		s->data = a[i];
 		s->next = NULL;
 		r->next = s;
@@ -34,15 +34,15 @@ void CreateListR(LinkNode *& L, ElemType a[], int n)
 	}
 }
 
-void InitList(LinkNode *& L)
+void InitList(LinkList *& L)
 {
-	L = (LinkNode*)malloc(sizeof(LinkNode));
+	L = (LinkList*)malloc(sizeof(LinkList));
 	L->next = NULL; // 创建头节点
 }
 
-void DestroyList(LinkNode *& L)
+void DestroyList(LinkList *& L)
 {
-	LinkNode* pre = L, *p = L->next;
+	LinkList* pre = L, *p = L->next;
 
 	while (NULL != p)
 	{
@@ -53,14 +53,14 @@ void DestroyList(LinkNode *& L)
 	free(pre);
 }
 
-bool ListEmpty(LinkNode * L)
+bool ListEmpty(LinkList * L)
 {
 	return (NULL == L->next);
 }
 
-int ListLength(LinkNode * L)
+int ListLength(LinkList * L)
 {
-	LinkNode* p = L;
+	LinkList* p = L;
 	int n = 0;
 
 	while (NULL != p->next)
@@ -71,9 +71,9 @@ int ListLength(LinkNode * L)
 	return n;
 }
 
-void DispList(LinkNode * L)
+void DispList(LinkList * L)
 {
-	LinkNode* p = L->next;
+	LinkList* p = L->next;
 
 	while (NULL != p)
 	{
@@ -83,12 +83,12 @@ void DispList(LinkNode * L)
 	std::cout << std::endl;
 }
 
-bool GetElem(LinkNode * L, int i, ElemType & e)
+bool GetElem(LinkList * L, int i, ElemType & e)
 {
-	if (i < 0)
+	if (i <= 0)
 		return false;
 
-	LinkNode* p = L;
+	LinkList* p = L;
 	int j = 0;
 
 	while (j < i && NULL != p)
@@ -105,9 +105,9 @@ bool GetElem(LinkNode * L, int i, ElemType & e)
 	return true;
 }
 
-int LocateElem(LinkNode * L, ElemType e)
+int LocateElem(LinkList * L, ElemType e)
 {
-	LinkNode* p = L;
+	LinkList* p = L;
 	int n = 0;
 
 	while (NULL != p)
@@ -120,12 +120,12 @@ int LocateElem(LinkNode * L, ElemType e)
 	return 0;
 }
 
-bool ListInsert(LinkNode *& L, int i, ElemType e)
+bool ListInsert(LinkList *& L, int i, ElemType e)
 {
-	LinkNode* p = L, *s;
+	LinkList* p = L, *s;
 	int j = 0;
 	
-	if (i < 0)
+	if (i <= 0)
 		return false;
 
 	while (j < i - 1 && NULL != p) //查找第i-1个节点
@@ -138,7 +138,7 @@ bool ListInsert(LinkNode *& L, int i, ElemType e)
 		return false;
 	else
 	{
-		s = (LinkNode*)malloc(sizeof(LinkNode));
+		s = (LinkList*)malloc(sizeof(LinkList));
 		s->data = e;
 		s->next = p->next;
 		p->next = s;
@@ -146,12 +146,12 @@ bool ListInsert(LinkNode *& L, int i, ElemType e)
 	return true;
 }
 
-bool ListDelete(LinkNode *& L, int i, ElemType & e)
+bool ListDelete(LinkList *& L, int i, ElemType & e)
 {
-	LinkNode* p = L, *q;
+	LinkList* p = L, *q;
 	int j = 0;
 
-	if (i < 0)
+	if (i <= 0)
 		return false;
 
 	while (j < i - 1 && NULL != p)
