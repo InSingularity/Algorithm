@@ -270,3 +270,52 @@ void LevelOrder(BTree * b)
 	}
 }
 
+BTree * CreateBT1(char * pre, char * in, int n)
+{
+	BTree * b;
+	char * p;
+	int k = 0;
+	if (n <= 0)
+		return NULL;
+	b = (BTree*)malloc(sizeof(BTree));
+	b->data = *pre;
+	p = in;
+
+	for (k = 1; k <= n; k++)//在in找头节点
+	{
+		if (*p == *pre)
+			break;
+		else
+			p++;
+	}
+	k--;
+
+	b->lchild = CreateBT1(pre + 1, in, k);
+	b->rchild = CreateBT1(pre + k + 1, p + 1, n - k - 1);
+	return b;
+}
+
+BTree * CreateBt2(char * post, char * in, int n)
+{
+	BTree * b;
+	char * p;
+	int k = 0;
+	if (n <= 0)
+		return NULL;
+	b = (BTree*)malloc(sizeof(BTree));
+	b->data = *(post + n -1); //头节点
+	p = in;
+
+	for (k = 0; k < n; k++) //在in找头节点
+	{
+		if (*p == *(post + n - 1))
+			break;
+		else
+			p++;
+	}
+
+	b->lchild = CreateBt2(post, in, k);
+	b->rchild = CreateBt2(post + k, p + 1, n - k - 1);
+	return b;
+}
+
