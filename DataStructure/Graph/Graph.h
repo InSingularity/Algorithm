@@ -1,69 +1,69 @@
 #pragma once
-#define MAXV 5 //×î´óµÄ¶¥µã¸öÊı
-#define INF 32767 //¶¨ÒåÎŞÇî´ó
+#define MAXV 5 //æœ€å¤§çš„é¡¶ç‚¹ä¸ªæ•°
+#define INF 32767 //å®šä¹‰æ— ç©·å¤§
 
-//ÁÚ½Ó¾ØÕó´æ´¢
+//é‚»æ¥çŸ©é˜µå­˜å‚¨
 typedef char* InfoType;
 typedef struct
 {
-	int no;				//¶¥µãµÄ±àºÅ
-	InfoType info;		//¶¥µãµÄÆäËüĞÅÏ¢
-}VertexType;			//¶¥µãµÄÀàĞÍĞÅÏ¢
+	int no;			//é¡¶ç‚¹çš„ç¼–å·
+	InfoType info;		//é¡¶ç‚¹çš„å…¶å®ƒä¿¡æ¯
+}VertexType;			//é¡¶ç‚¹çš„ç±»å‹ä¿¡æ¯
 
 typedef struct
 {
-	int edges[MAXV][MAXV];  //ÁÚ½Ó¾ØÕóÊı×é
-	int n;					//¶¥µãÊı
-	int e;					//±ßÊı
-	VertexType vexs[MAXV];  //´æ·Å¶¥µãĞÅÏ¢
-}MatGraph;					//ÍêÕûµÄÍ¼ÁÚ½Ó¾ØÕóÀàĞÍ
+	int edges[MAXV][MAXV];  //é‚»æ¥çŸ©é˜µæ•°ç»„
+	int n;			//é¡¶ç‚¹æ•°
+	int e;			//è¾¹æ•°
+	VertexType vexs[MAXV];  //å­˜æ”¾é¡¶ç‚¹ä¿¡æ¯
+}MatGraph;			//å®Œæ•´çš„å›¾é‚»æ¥çŸ©é˜µç±»å‹
 
-//ÁÚ½Ó±í´æ´¢
+//é‚»æ¥è¡¨å­˜å‚¨
 typedef struct ANode
 {
-	int adjvex;				//¸Ã±ßµÄÁÚ½Óµã±àºÅ
-	struct ANode * nextarc; //Ö¸ÏòÏÂÒ»Ìõ±ßµÄÖ¸Õë
-	int weight;				//¸Ã±ßµÄÏà¹ØĞÅÏ¢£¬ÈçÈ¨Öµ
-}ArcNode;					//±ß½áµãµÄÀàĞÍ
+	int adjvex;		//è¯¥è¾¹çš„é‚»æ¥ç‚¹ç¼–å·
+	struct ANode * nextarc; //æŒ‡å‘ä¸‹ä¸€æ¡è¾¹çš„æŒ‡é’ˆ
+	int weight;		//è¯¥è¾¹çš„ç›¸å…³ä¿¡æ¯ï¼Œå¦‚æƒå€¼
+}ArcNode;			//è¾¹ç»“ç‚¹çš„ç±»å‹
 
 typedef struct Vnode
 {
-	InfoType info;			//¶¥µãµÄÆäËüĞÅÏ¢
-	ArcNode * firstarc;		//Ö¸ÏòµÚÒ»¸ö±ß½áµã
-}VNode;						//ÁÚ½Ó±íµÄÍ·½áµãÀàĞÍ
+	InfoType info;		//é¡¶ç‚¹çš„å…¶å®ƒä¿¡æ¯
+	ArcNode * firstarc;	//æŒ‡å‘ç¬¬ä¸€ä¸ªè¾¹ç»“ç‚¹
+}VNode;				//é‚»æ¥è¡¨çš„å¤´ç»“ç‚¹ç±»å‹
 
 typedef struct
 {
-	VNode adjlist[MAXV];	//ÁÚ½Ó±íµÄÍ·½áµãÊı×é
-	int n;					//Í¼ÖĞµÄ¶¥µãÊı
-	int e;					//±ßÊı
-}AdjGraph;					//ÍêÕûµÄÍ¼ÁÚ½Ó±íÀàĞÍ
+	VNode adjlist[MAXV];	//é‚»æ¥è¡¨çš„å¤´ç»“ç‚¹æ•°ç»„
+	int n;			//å›¾ä¸­çš„é¡¶ç‚¹æ•°
+	int e;			//è¾¹æ•°
+}AdjGraph;			//å®Œæ•´çš„å›¾é‚»æ¥è¡¨ç±»å‹
 
 typedef struct
 {
-	int u;					//±ßµÄÆğÊ¼¶¥µã
-	int v;					//±ßµÄÖÕÖ¹¶¥µã
-	int w;					//±ßµÄÈ¨Öµ
-}Edge;							//ÓÃÓÚ¿ËÂ³Ë¹¿¨¶ûËã·¨
+	int u;			//è¾¹çš„èµ·å§‹é¡¶ç‚¹
+	int v;			//è¾¹çš„ç»ˆæ­¢é¡¶ç‚¹
+	int w;			//è¾¹çš„æƒå€¼
+}Edge;				//ç”¨äºå…‹é²æ–¯å¡å°”ç®—æ³•
 
 
-//ÓÃÁÚ½Ó¾ØÕóÊı×é´´½¨ÁÚ½Ó±í
+//ç”¨é‚»æ¥çŸ©é˜µæ•°ç»„åˆ›å»ºé‚»æ¥è¡¨
 void CreateAdj(AdjGraph *& G, int A[MAXV][MAXV], int n, int e);
 void DispAdj(AdjGraph * G);
 void DestroyAdj(AdjGraph *& G);
 
-//ÁÚ½Ó±íÓëÁÚ½Ó¾ØÕóµÄÏà»¥×ª»»
+//é‚»æ¥è¡¨ä¸é‚»æ¥çŸ©é˜µçš„ç›¸äº’è½¬æ¢
 void MatToList(MatGraph g, AdjGraph *& G);
 void ListToMat(AdjGraph * G, MatGraph & g);
 
-//Í¼±éÀú£¨ËùÓĞµã¾ù·ÃÎÊ£©
+//å›¾éå†ï¼ˆæ‰€æœ‰ç‚¹å‡è®¿é—®ï¼‰
 void DFS(AdjGraph * G, int v);
 void BFS(AdjGraph * G, int v);
 
-//Éú³ÉÊ÷
-void Prim(MatGraph g, int v);    //ÆÕÀïÄ·Ëã·¨
-void Kruskal(MatGraph g);	     //¿ËÂ³Ë¹¿¨¶û
+//ç”Ÿæˆæ ‘
+void Prim(MatGraph g, int v);    //æ™®é‡Œå§†ç®—æ³•
+void Kruskal(MatGraph g);	 //å…‹é²æ–¯å¡å°”
 
-//×î¶ÌÂ·¾¶
-void Dijkstra(MatGraph g, int v);//µÒ¿ËË¹ÌØÀ­Ëã·¨
-void Floyd(MatGraph g);			 //¸¥ÂåÒÁµÂËã·¨
+//æœ€çŸ­è·¯å¾„
+void Dijkstra(MatGraph g, int v);//ç‹„å…‹æ–¯ç‰¹æ‹‰ç®—æ³•
+void Floyd(MatGraph g);		 //å¼—æ´›ä¼Šå¾·ç®—æ³•
