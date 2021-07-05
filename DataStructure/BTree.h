@@ -27,3 +27,7 @@ void PreOrder1(BTree * b);
 void InOrder1(BTree * b);
 void PostOrder1(BTree * b);
 void LevelOrder(BTree * b);
+
+//¹¹Ôì¶þ²æÊ÷
+BTree * CreateBT1(char * pre, char * in, int n);
+BTree * CreateBt2(char * pos, char * in, int n);
