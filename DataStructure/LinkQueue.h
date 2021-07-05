@@ -1,6 +1,6 @@
 #pragma once
-//队空：q->rear == NULL(或q->front == NULL)
-//队满：不考虑
+//闃熺┖锛歲->rear == NULL(鎴杚->front == NULL)
+//闃熸弧锛氫笉鑰冭檻
 typedef char ElemType;
 
 typedef struct qnode
