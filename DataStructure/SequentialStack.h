@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #ifndef MaxSize
 #define MaxSize 50
@@ -8,7 +8,7 @@ typedef char ElemType;
 typedef struct
 {
 	ElemType data[MaxSize];
-	int top; // ´úÂëÖÐµÄÕ»¿ÕÎª£ºs->top = -1
+	int top; // ä»£ç ä¸­çš„æ ˆç©ºä¸ºï¼šs->top = -1
 }SqStack;
 
 void InitStack(SqStack *& s);

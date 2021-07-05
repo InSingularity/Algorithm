@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include <iostream>
 #include "LinkString.h"
 
@@ -122,7 +122,7 @@ LinkString * SubStr(LinkString * s, int i, int j)
 	if (i <= 0 || i > StrLength(s) || j <= 0 || i + j - 1 > StrLength(s))
 		return str;
 
-	for (int k = 1; k < i; k++) //k=1ÒòÎªÒÑ¾­Ìø¹ýÍ·½Úµã
+	for (int k = 1; k < i; k++) //k=1å› ä¸ºå·²ç»è·³è¿‡å¤´èŠ‚ç‚¹
 		p = p->next;
 
 	for (int k = 0; k < j; k++)

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 typedef char ElemType;
 typedef struct node
 {
@@ -8,7 +8,7 @@ typedef struct node
 	struct node * rchild;
 }TBTree;
 
-//ÖĞĞòÏßË÷¶ş²æÊ÷
+//ä¸­åºçº¿ç´¢äºŒå‰æ ‘
 void Thread(TBTree *& p);
 TBTree * CreateThread(TBTree * b);
 
