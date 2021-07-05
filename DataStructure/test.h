@@ -1,4 +1,4 @@
-#pragma once
-//Èöµ©·¢µÄ
-
+ï»¿#pragma once
+//æ’’æ—¦å‘çš„
+dddd
 void test();

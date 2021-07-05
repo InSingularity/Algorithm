@@ -1,6 +1,6 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "test.h"
-//�ĵط��ϵ�
+//的地方上的
 void test()
 {
 }
